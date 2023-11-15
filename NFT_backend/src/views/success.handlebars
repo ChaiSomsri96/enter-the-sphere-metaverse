@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="panel">
+        <h1>Thank you for your payment.</h1>
+    <pre class="json" id="session-data"></pre>
+    </div>
+</div>
+
+
+<script>
+    var sessionData = document.getElementById('session-data');
+    var params = new URLSearchParams(window.location.search);
+    var id = params.get('id');
+
+    fetch('http://localhost:5000/api/v1/payments/stripe/payment-session?id=' + id)
+    .then((response) => response.json())
+    .then((session) => {
+        sessionData.innerText = JSON.stringify(session, null, 2);
+    }).catch(error => {
+        console.error('Error:', error)
+    })
+</script>

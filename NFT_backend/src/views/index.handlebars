@@ -1,0 +1,29 @@
+  <section>
+      <div class="product">
+        <img
+          src="https://i.imgur.com/coQozsw.jpg"
+          alt="The cover of Stubborn Attachments"
+        />
+        <div class="description">
+          <h3>Master Forge</h3>
+          <h5 id="price">$2.00</h5>
+          <input type="number" step="1" id="quantity" value="1">
+        </div>
+      </div>
+      <button type="button" id="checkout-button">Purchase with fiat </button>
+
+  <form action="https://www.coinpayments.net/index.php" method="post">
+	<input type="hidden" name="cmd" value="_pay">
+	<input type="hidden" name="reset" value="1">
+	<input type="hidden" name="want_shipping" value="0">
+	<input type="hidden" name="merchant" value="b7623503372c04d4a7d0d062894d8b4e">
+	<input type="hidden" name="currency" value="usd">
+	<input type="hidden" name="amountf" value="2.00">
+	<input type="hidden" name="item_name" value="Test Item">		
+	<input type="hidden" name="allow_extra" value="1">	
+  	<input type="hidden" name="taxf" value="0.40">
+	<input type="hidden" name="success_url" value="http://localhost:5000/success?cmd=acct_home">	
+	<input type="hidden" name="cancel_url" value="http://localhost:5000">	
+	<input type="image" src="https://www.coinpayments.net/images/pub/buynow-white.png" alt="Buy Now with CoinPayments.net">
+</form>
+    </section>

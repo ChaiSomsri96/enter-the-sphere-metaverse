@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>Enter the sphere lootbox bundle</title>
+    <style>.product img {
+    width: 250px;
+}</style>
+</head>
+<body>
+      {{{body}}}
+
+     <script type="text/javascript">
+    // Create an instance of the Stripe object with your publishable API key
+    var stripe = Stripe("pk_test_BNBTEcl0jNauD6xJaeXisezw");
+    var checkoutButton = document.getElementById("checkout-button");
+    var quantity = document.getElementById('quantity')
+    quantity.addEventListener("change", function() {
+    
+          if (result.error) {
+            alert(result.error.message);
+          }
+        })
+        .catch(function (error) { const price = document.getElementById('price');
+        price.innerHTML = `$${quantity.value * 2}`;   
+    })
+    checkoutButton.addEventListener("click", function () {
+      fetch("http://localhost:5000/api/v1/payments/stripe/create-payment-session", {
+        method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+        body: JSON.stringify({
+            quantity: quantity.value
+        })
+      })
+        .then(function (response) {
+            console.log('response', response)
+          return response.json();
+        })
+        .then(function (session) {
+          return stripe.redirectToCheckout({ sessionId: session.id });
+        })
+        .then(function (result) {
+          // If redirectToCheckout fails due to a browser or network
+          // error, you should display the localized error message to your
+          // customer using error.message.
+          console.error("Error:", error);
+        });
+    });
+  </script>
+</body>
+</html>
