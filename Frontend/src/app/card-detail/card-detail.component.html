@@ -1,0 +1,946 @@
+<!-- Card-detail-title section -->
+<section class="card-detail-title">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between w-100">
+      <div class="title-left">
+        <div class="main-title">
+          <h2 class="mb-1">{{ details?.name }}</h2>
+          <div class="golden-text">{{ details?.type }}</div>
+        </div>
+      </div>
+      <div class="title-right">
+        <h6>{{ details?.type }}</h6>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Card-detail-info section -->
+<section class="card-detail-info">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-10 col-md-10 col-lg-4 col-xl-3 mb-4 mb-lg-0">
+        <div class="sphere-card">
+          <div class="image-wrap">
+            <img
+              src="{{ details?.cardImage }}"
+              width="355"
+              height="319"
+              alt="Card"
+              class="img-fluid"
+            />
+            <div class="price-wrap">${{ details?.cost }}</div>
+            <!-- <div class="rarity-icon">
+              <img
+                src="assets/images/rarity5.png"
+                class="img-fluid"
+                width="70"
+                height="68"
+                alt="Rarity"
+              />
+              <img
+                src="assets/images/8.svg"
+                class="img-fluid level"
+                width="20"
+                height="68"
+                alt="level"
+              />
+            </div> -->
+          </div>
+          <div class="sphere-card-content position-relative">
+            <!-- <div class="stats-listing">
+              <div class="attack-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img
+                    src="assets/images/strikebg.png"
+                    width="50"
+                    height="50"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+              <div class="defence-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img
+                    src="assets/images/defencebg.png"
+                    width="50"
+                    height="50"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+              <div class="health-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img
+                    src="assets/images/healthbg.png"
+                    width="50"
+                    height="50"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+            </div> -->
+            <!-- <div class="text-content">
+              <h3>{{details?.name}}</h3>
+              <p>{{shortDescription}}.</p>
+            </div> -->
+            <div class="speciality-wrap">
+              <span>{{ details?.type }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="buy-sell-btn d-flex justify-content-between">
+          <button type="button" class="btn-large btn-buy mr-3" (click)="buy()">
+            BUY
+          </button>
+          <button
+            type="button"
+            class="btn-large btn-sale"
+            (click)="openModal(edit)"
+          >
+            SELL
+          </button>
+        </div>
+        <div class="last-price text-white font-weight-bold text-center mt-3">
+          Last Trade Price: ${{ details?.cost }} <br />
+          <a target="_blank" [href]="currentToken">View NFT Token</a>
+        </div>
+      </div>
+      <div
+        class="col-sm-12 col-md-12 col-lg-8 col-xl-9 d-flex flex-column justify-content-between"
+      >
+        <div class="card-content-wrap w-100 mb-4 mb-xl-0">
+          <h3 class="mb-4">{{ details?.name }}</h3>
+          <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis eligendi, sed quo cupiditate incidunt praesentium ad quisquam modi, aliquid iure molestias adipisci deleniti reprehenderit temporibus atque eveniet, laudantium veniam molestiae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae accusantium debitis perspiciatis nisi error corporis, voluptatibus illum, voluptatum fugit nihil dolorum sapiente porro recusandae eaque. Repellendus cupiditate ratione magni harum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, soluta dicta facilis fugit facere ad dolores, nesciunt consequuntur nisi error sint minus impedit aperiam ab qui repudiandae fuga odit. Reprehenderit!</p> -->
+          <p [innerHTML]="details?.desc"></p>
+        </div>
+        <div class="card-stats-meta text-center w-100 mb-3">
+          <div class="row justify-content-center mx-n4">
+            <div class="col-xl-3 col-lg-6 col-sm-6 mb-3 mb-xl-0">
+              <h5 class="card-head mb-1">Rarity:</h5>
+              <div class="meta-value">
+                <img
+                  *ngIf="details?.rarity === 'Common'"
+                  class="img-fluid"
+                  src="/assets/images/rarity1.png"
+                  alt="rarity-img"
+                  width="30"
+                  height="30"
+                />
+                <img
+                *ngIf="details?.rarity === 'Uncommon'"
+                class="img-fluid"
+                src="/assets/images/rarity2.png"
+                alt="rarity-img"
+                width="30"
+                height="30"
+              />
+              <img
+              *ngIf="details?.rarity === 'Rare'"
+              class="img-fluid"
+              src="/assets/images/rarity3.png"
+              alt="rarity-img"
+              width="30"
+              height="30"
+            />
+            <img
+            *ngIf="details?.rarity === 'Legendary'"
+            class="img-fluid"
+            src="/assets/images/rarity4.png"
+            alt="rarity-img"
+            width="30"
+            height="30"
+          />
+          <img
+          *ngIf="details?.rarity === 'Super Rare' || details?.rarity === 'Ultimate Legendary' "
+          class="img-fluid"
+          src="/assets/images/rarity5.png"
+          alt="rarity-img"
+          width="30"
+          height="30"
+        />
+                <span class="span-text">{{
+                  details?.rarity
+                }}</span>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-6 mb-3 mb-xl-0">
+              <h5 class="card-head mb-1">Card Type:</h5>
+              <div class="meta-value">
+                <img *ngIf="details?.type === 'common'"
+                  class="img-fluid"
+                  src="/assets/images/filters/{{ details?.type }}.png"
+                  alt="card"
+                  height="30"
+                  width="30"
+                />
+                <span class="span-text-2">{{
+                  details?.type                }}</span>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-6 mb-3 mb-xl-0">
+              <h5 class="card-head mb-1">Cards in Circulation:</h5>
+              <div class="meta-value">
+                <img src="" alt="" />
+                <span class="text-white">{{
+                  details?.totalSupply-details?.currentSupply
+                }}</span>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-sm-6 mb-3 mb-xl-0">
+              <h5 class="card-head mb-1">Total Supply Cap:</h5>
+              <div class="meta-value">
+                <img src="" alt="" />
+                <span class="text-white">{{ details?.totalSupply }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Sphere-tabs-section -->
+<section class="sphere-tabs-section">
+  <div class="container">
+    <!-- nav-tabs -->
+    <ul
+      class="nav nav-tabs border-0 flex-column flex-md-row justify-content-center"
+      id="myTab"
+      role="tablist"
+    >
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link active"
+          id="home-tab"
+          data-toggle="tab"
+          href="#home"
+          role="tab"
+          aria-controls="home"
+          aria-selected="true"
+          >FULL ILLUSTRATION</a
+        >
+      </li>
+      <li class="nav-item" role="presentation" *ngIf="isLogin">
+        <a
+          class="nav-link"
+          id="trade-tab"
+          data-toggle="tab"
+          href="#trade"
+          role="tab"
+          aria-controls="trade"
+          aria-selected="false"
+          >TRADE HISTORY</a
+        >
+      </li>
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link"
+          id="salecard-tab"
+          data-toggle="tab"
+          href="#salecard"
+          role="tab"
+          aria-controls="salecard"
+          aria-selected="false"
+          >CARD FOR SALE</a
+        >
+      </li>
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link"
+          id="stats-tab"
+          data-toggle="tab"
+          href="#stats"
+          role="tab"
+          aria-controls="stats"
+          aria-selected="false"
+          >STATS</a
+        >
+      </li>
+    </ul>
+    <!-- tabs-content -->
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="home"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+      >
+        <div
+          class="card-image-wrap tint-over"
+          style="background-image: url('{{ details?.illustration }}');"
+        >
+          <div class="inner-image">
+            <img
+              class="img-fluid"
+              src="{{ details?.illustration }}"
+              alt="card"
+              height="638"
+              width="515"
+            />
+          </div>
+        </div>
+        <!-- Full Illustration -->
+      </div>
+      <div
+        class="tab-pane fade"
+        id="trade"
+        role="tabpanel"
+        aria-labelledby="trade-tab"
+      >
+        <div class="table-wrap">
+          <div class="table-responsive table-content">
+            <table class="table table-borderless table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Trade</th>
+                  <th scope="col">Card Name</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="
+                    let data of tradeList
+                      | paginate
+                        : {
+                            itemsPerPage: 10,
+                            currentPage: page,
+                            totalItems: totalPages * 10
+                          }
+                  "
+                >
+                  <td>{{ data.created_at | date: "y, MMM dd, h:mm:ss a" }}</td>
+                  <td>{{ data.quantity }}</td>
+                  <td>${{ data.price }}</td>
+                  <td>{{ data.trade_type }}</td>
+                  <td>{{ data.card_id?.name }}</td>
+                  <td>Completed</td>
+                </tr>
+                <!-- <tr>
+                           <td>5 june 2020</td>
+                           <td>1</td>
+                           <td>$10.35</td>
+                           <td>SELL</td>
+                           <td>Completed</td>
+                         </tr>
+                         <tr>
+                           <td>5 june 2020</td>
+                           <td>1</td>
+                           <td>$10.35</td>
+                           <td>SELL</td>
+                           <td>Completed</td>
+                         </tr>
+                         <tr>
+                           <td>5 june 2020</td>
+                           <td>1</td>
+                           <td>$10.35</td>
+                           <td>SELL</td>
+                           <td>Completed</td>
+                         </tr>
+                         <tr>
+                           <td>5 june 2020</td>
+                           <td>1</td>
+                           <td>$10.35</td>
+                           <td>SELL</td>
+                           <td>Completed</td>
+                         </tr>
+                         <tr>
+                           <td>5 june 2020</td>
+                           <td>1</td>
+                           <td>$10.35</td>
+                           <td>SELL</td>
+                           <td>Completed</td>
+                         </tr>
+                         <tr>
+                           <td>5 june 2020</td>
+                           <td>1</td>
+                           <td>$10.35</td>
+                           <td>SELL</td>
+                           <td>Completed</td>
+                         </tr>
+                         <tr>
+                           <td>5 june 2020</td>
+                           <td>1</td>
+                           <td>$10.35</td>
+                           <td>SELL</td>
+                           <td>Completed</td>
+                         </tr>
+                         <tr>
+                           <td>5 june 2020</td>
+                           <td>1</td>
+                           <td>$10.35</td>
+                           <td>SELL</td>
+                           <td>Completed</td>
+                         </tr>					  -->
+              </tbody>
+            </table>
+            <div *ngIf="pageView">
+              <pagination-controls
+                (pageChange)="pageChanged($event)"
+              ></pagination-controls>
+            </div>
+          </div>
+        </div>
+        <!-- trade history -->
+      </div>
+      <div
+        class="tab-pane fade"
+        id="salecard"
+        role="tabpanel"
+        aria-labelledby="salecard-tab"
+      >
+        <div class="table-wrap">
+          <div class="row table-filter justify-conten-lg-between">
+            <div class="col-lg-6 mb-3 mb-lg-0 fileter-left">
+              <div class="filter-dropdown h-100">
+                <div class="dropdown d-inline-block">
+                  <a
+                    class="dropdown-toggle"
+                    href="javascript:void(0);"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Price/ORB <i class="fas fa-long-arrow-alt-up"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item active" href="javascript:void(0);"
+                      >Most Expensive</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Cheapest</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Highest Level</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Most Amount of Staked ORBs</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Lowest Level</a
+                    >
+                    <a class="dropdown-item" href="javascript:void(0);"
+                      >Newest</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 filter-right">
+              <div class="d-flex align-items-center justify-content-lg-end">
+                <div class="filter-dropdown h-100 mr-3">
+                  <div class="dropdown d-inline-block">
+                    <a
+                      class="dropdown-toggle"
+                      href="javascript:void(0);"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      DEC
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item active" href="javascript:void(0);"
+                        >Dec</a
+                      >
+                      <a class="dropdown-item" href="javascript:void(0);"
+                        >Dec</a
+                      >
+                      <a class="dropdown-item" href="javascript:void(0);"
+                        >Dec</a
+                      >
+                      <a class="dropdown-item" href="javascript:void(0);"
+                        >Dec</a
+                      >
+                      <a class="dropdown-item" href="javascript:void(0);"
+                        >Dec</a
+                      >
+                      <a class="dropdown-item" href="javascript:void(0);"
+                        >Dec</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn-large btn-buy w-auto">
+                  BUY
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive table-content">
+            <table class="table table-borderless table-striped">
+              <thead>
+                <tr>
+                  <th scope="col" width="60">&nbsp;</th>
+                  <th scope="col" width="130">Price</th>
+                  <th scope="col" width="140">Lvl</th>
+                  <th scope="col" width="150">
+                    BCH <i class="fas fa-info table-icon"></i>
+                  </th>
+                  <th scope="col" width="150">$ORB</th>
+                  <th scope="col" width="150"><i class="far fa-clock"></i></th>
+                  <th scope="col" width="150">Card ID</th>
+                  <th scope="col" width="200">Seller</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="7">No data found</td>
+                  <!-- <td>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label" for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td>$10.56</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>$10.56</td>
+                  <td><i class="far fa-clock"></i></td>
+                  <td>c1-5-HYYGGFFGH</td>
+                  <td>@dreamryder007</td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Card for sale -->
+      </div>
+      <div
+        class="tab-pane fade"
+        id="stats"
+        role="tabpanel"
+        aria-labelledby="stats-tab"
+      >
+        <div class="table-wrap stats-tabs">
+          <div class="table-responsive table-content">
+            <table class="table table-borderless table-striped">
+              <thead>
+                <tr>
+                  <th scope="col" width="80">Lvl</th>
+                  <th scope="col" width="390">Cards</th>
+                  <th scope="col" width="200">
+                    <img
+                      class="img-fluid"
+                      src="../../assets/images/tabstrikebg.png"
+                      alt="icon"
+                      width="34"
+                      height="30"
+                    />
+                  </th>
+                  <th scope="col" width="200">
+                    <img
+                      class="img-fluid"
+                      src="../../assets/images/tabdefencebg.png"
+                      alt="icon"
+                      width="34"
+                      height="30"
+                    />
+                  </th>
+                  <th scope="col" width="210">
+                    <img
+                      class="img-fluid"
+                      src="../../assets/images/healthbtabg.png"
+                      alt="icon"
+                      width="34"
+                      height="30"
+                    />
+                  </th>
+                  <th scope="col" width="200">Abilities</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- stats table -->
+      </div>
+    </div>
+  </div>
+</section>
+<!--Former-vers-section  -->
+<section class="former-vers-sec">
+  <div class="container">
+    <div class="version-title">
+      <h5>Former Versions</h5>
+      <p>Keeping track of card changes throughout history.</p>
+    </div>
+    <div class="version-grid row">
+      <ng-container *ngFor="let data of allCardsData">
+        <div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3 mb-4">
+          <div class="sphere-card" routerLink="/cards/{{ data.id }}">
+            <div class="image-wrap">
+              <img
+                src="{{ data.cardImage }}"
+                width="760"
+                height="1061"
+                alt="Card"
+                class="img-fluid"
+              />
+              <div class="price-wrap">${{ data.current_price }}</div>
+              <!-- <div class="rarity-icon">
+                <img
+                  src="assets/images/rarity5.png"
+                  class="img-fluid"
+                  width="70"
+                  height="68"
+                  alt="Rarity"
+                />
+                <img
+                  src="assets/images/8.svg"
+                  class="img-fluid level"
+                  width="20"
+                  height="68"
+                  alt="level"
+                />
+              </div> -->
+            </div>
+            <div class="sphere-card-content position-relative">
+              <!-- <div class="stats-listing">
+                <div class="attack-stat stat shine-effect">
+                  <a class="d-inline-block" href="javascript:void(0);">
+                    <img
+                      src="assets/images/strikebg.png"
+                      width="50"
+                      height="50"
+                      class="img-fluid"
+                      alt=""
+                    />
+                    <span class="stat-value">+1</span>
+                  </a>
+                </div>
+                <div class="defence-stat stat shine-effect">
+                  <a class="d-inline-block" href="javascript:void(0);">
+                    <img
+                      src="assets/images/defencebg.png"
+                      width="50"
+                      height="50"
+                      class="img-fluid"
+                      alt=""
+                    />
+                    <span class="stat-value">+1</span>
+                  </a>
+                </div>
+                <div class="health-stat stat shine-effect">
+                  <a class="d-inline-block" href="javascript:void(0);">
+                    <img
+                      src="assets/images/healthbg.png"
+                      width="50"
+                      height="50"
+                      class="img-fluid"
+                      alt=""
+                    />
+                    <span class="stat-value">+1</span>
+                  </a>
+                </div>
+              </div> -->
+              <div class="text-content">
+                <h3>{{ data.name }}</h3>
+                <!-- <p>Lorem ipsum dolor sit amet wet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p> -->
+              </div>
+              <div class="speciality-wrap">
+                <span>{{ data?.type}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="version-info text-center">
+            <div class="version-no text-white">Version 4</div>
+            <div class="version-date">Replaced September 4, 2019</div>
+          </div>
+        </div>
+      </ng-container>
+      <!-- <div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3 mb-4">
+        <div class="sphere-card">
+          <div class="image-wrap">
+            <img src="assets/images/card-sample-2.jpg" width="760" height="1061" alt="Card" class="img-fluid">
+            <div class="price-wrap">
+              $10.56
+            </div>
+            <div class="rarity-icon">
+              <img src="assets/images/rarity5.png" class="img-fluid" width="70" height="68" alt="Rarity">
+              <img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+            </div>
+          </div>
+          <div class="sphere-card-content position-relative">
+            <div class="stats-listing">
+              <div class="attack-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+              <div class="defence-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+              <div class="health-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+            </div>
+            <div class="text-content">
+              <h3>FROG PLATE</h3>
+              <p>Lorem ipsum dolor sit amet wet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+            </div>
+            <div class="speciality-wrap">
+              <span>EQUIPMENT</span>
+            </div>
+          </div>
+        </div>
+        <div class="version-info text-center">
+          <div class="version-no text-white">Version 4</div>
+          <div class="version-date">Replaced September 4, 2019</div>
+        </div>
+      </div>
+      <div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3 mb-4">
+        <div class="sphere-card ">
+          <div class="image-wrap">
+            <img src="assets/images/card-sample-2.jpg" width="760" height="1061" alt="Card" class="img-fluid">
+            <div class="price-wrap">
+              $10.56
+            </div>
+            <div class="rarity-icon">
+              <img src="assets/images/rarity5.png" class="img-fluid" width="70" height="68" alt="Rarity">
+              <img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+            </div>
+          </div>
+          <div class="sphere-card-content position-relative">
+            <div class="stats-listing">
+              <div class="attack-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+              <div class="defence-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+              <div class="health-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+            </div>
+            <div class="text-content">
+              <h3>FROG PLATE</h3>
+              <p>Lorem ipsum dolor sit amet wet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+            </div>
+            <div class="speciality-wrap">
+              <span>EQUIPMENT</span>
+            </div>
+          </div>
+        </div>
+        <div class="version-info text-center">
+          <div class="version-no text-white">Version 4</div>
+          <div class="version-date">Replaced September 4, 2019</div>
+        </div>
+      </div>
+      <div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3 mb-4">
+        <div class="sphere-card ">
+          <div class="image-wrap">
+            <img src="assets/images/card-sample-2.jpg" width="760" height="1061" alt="Card" class="img-fluid">
+            <div class="price-wrap">
+              $10.56
+            </div>
+            <div class="rarity-icon">
+              <img src="assets/images/rarity5.png" class="img-fluid" width="70" height="68" alt="Rarity">
+              <img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+            </div>
+          </div>
+          <div class="sphere-card-content position-relative">
+            <div class="stats-listing">
+              <div class="attack-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+              <div class="defence-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+              <div class="health-stat stat shine-effect">
+                <a class="d-inline-block" href="javascript:void(0);">
+                  <img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+                  <span class="stat-value">+1</span>
+                </a>
+              </div>
+            </div>
+            <div class="text-content">
+              <h3>FROG PLATE</h3>
+              <p>Lorem ipsum dolor sit amet wet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+            </div>
+            <div class="speciality-wrap">
+              <span>EQUIPMENT</span>
+            </div>
+          </div>
+        </div>
+        <div class="version-info text-center">
+          <div class="version-no text-white">Version 4</div>
+          <div class="version-date">Replaced September 4, 2019</div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<ng-template #edit>
+  <!-- <div class="modal" id="edit"> -->
+  <!-- <div class="modal-dialog"> -->
+  <!-- <div class="modal-content"> -->
+  <div class="modal-header">
+    <h4 class="modal-title">Want to change price ?</h4>
+    <button
+      type="button"
+      class="close pull-right"
+      aria-label="Close"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="editForm" (ngSubmit)="sale()">
+      <div class="row">
+        <div class="col-12 mb-4">
+          <div class="form-group">
+            <label for="cardtitle">Price</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  submitted && editForm.controls.price.hasError('pattern')
+              }"
+              placeholder="Price"
+              formControlName="price"
+            />
+            <div
+              *ngIf="submitted && editForm.controls.price.hasError('pattern')"
+              class="invalid-feedback"
+            >
+              Please enter numaric price
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn primary-btn d-inline-block mb-2 mr-3 btn-buy btn-large modal-btn"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              class="btn btn-sale btn-large d-inline-block mb-2 modal-btn-close"
+              (click)="closeModal()"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- </div> -->
+</ng-template>

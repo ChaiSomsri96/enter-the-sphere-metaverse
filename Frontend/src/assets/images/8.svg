@@ -1,0 +1,29 @@
+<svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="48px" height="62px">
+<defs>
+<linearGradient id="PSgrad_0" x1="0%" x2="76.604%" y1="64.279%" y2="0%">
+  <stop offset="0%" stop-color="rgb(153,101,21)" stop-opacity="1" />
+  <stop offset="30%" stop-color="rgb(204,162,11)" stop-opacity="1" />
+  <stop offset="50%" stop-color="rgb(255,223,0)" stop-opacity="1" />
+  <stop offset="70%" stop-color="rgb(205,163,11)" stop-opacity="1" />
+  <stop offset="100%" stop-color="rgb(155,103,21)" stop-opacity="1" />
+</linearGradient>
+<filter filterUnits="userSpaceOnUse" id="Filter_0" x="0px" y="0px" width="48px" height="62px"  >
+    <feOffset in="SourceAlpha" dx="-1.35" dy="5.846" />
+    <feGaussianBlur result="blurOut" stdDeviation="0" />
+    <feFlood flood-color="rgb(0, 0, 0)" result="floodOut" />
+    <feComposite operator="atop" in="floodOut" in2="blurOut" />
+    <feComponentTransfer><feFuncA type="linear" slope="1"/></feComponentTransfer>
+    <feMerge>
+    <feMergeNode/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+
+</defs>
+<g filter="url(#Filter_0)">
+<text font-family="Gotham" fill="url(#PSgrad_0)" transform="matrix( 4.02384824155687, 0, 0, 4.00620549125587,3.8807587922156, 56.0403356931631)" font-weight="bold" font-size="18px">&#56;</text>
+</g>
+</svg>

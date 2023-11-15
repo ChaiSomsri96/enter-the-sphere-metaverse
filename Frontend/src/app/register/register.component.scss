@@ -1,0 +1,105 @@
+.signIn .forgetPasstext,
+.signIn .dontHavaAcc {
+  font-size: 16px;
+  display: block;
+  color: #4e4e4e;
+  width: 100%;
+  letter-spacing: 0.7px;
+}
+.signIn .forgetPasstext a,
+.signIn .dontHavaAcc a {
+  color: #20d8ff;
+  font-size: 16px;
+}
+.signIn .customWidthContainer {
+  width: 80%;
+  margin: auto;
+}
+.signIn .banner_custom p {
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.79;
+}
+.signIn .formSection {
+  border-radius: 31px;
+  // -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  // -webkit-box-shadow: 0 0 17px 0 rgba(162, 202, 255, 0.39);
+  // box-shadow: 0 0 17px 0 rgba(162, 202, 255, 0.39);
+  // background-color: #ffffff;
+  position: relative;
+  bottom: 120px;
+}
+
+.signIn .formSection form label {
+  font-weight: 300;
+  line-height: 1.75;
+  letter-spacing: 0.58px;
+  color: #4e4e4e;
+}
+.signIn .formSection form label img {
+  vertical-align: baseline;
+}
+
+.signIn .formSection form label span {
+  color: red;
+}
+.signIn .formSection form input,
+.signIn .formSection form textarea {
+  min-height: 48px;
+  border-radius: 6px;
+  border: solid 1px #d2d7df;
+  background-color: #f5f7fb;
+}
+.signIn .formSection form button {
+  min-width: 100%;
+  min-height: 50px;
+  border-radius: 8px;
+  background-color:rgba(16, 30, 44, 0.6);
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+.signIn .formSection .signUpButton span {
+  color: #878787;
+}
+.signIn .formSection .signUpButton .socialIcon img {
+  height: 30px;
+}
+
+.text-mardo-info{
+  color: #20d8ff;
+}
+@media (max-width: 768px) {
+  .signIn .formSection {
+    width: 95%;
+    margin: auto;
+  }
+}
+@media (min-width: 992px) {
+  .signIn .formSection {
+    width: 80%;
+    margin: auto;
+  }
+  .signIn .formSection form button {
+    min-width: 168px;
+  }
+}
+@media (min-width: 1200px) {
+  .signIn .formSection {
+    width: 40%;
+    margin: auto;
+  }
+}
+
+.fa-eye-slash:hover,
+.fa-eye:hover {
+  cursor: pointer;
+}
+
+.input-eye{
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  font-size: 100%;
+}

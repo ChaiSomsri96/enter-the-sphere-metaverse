@@ -1,0 +1,96 @@
+<section
+  class="maininnerarea"
+  [ngStyle]="{ 'background-image': 'url(./assets/cardopen_bg1.png)' }"
+>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="opencard_area">
+          <div class="top_bx">
+            <h1 class="mainindex_heading">Congratulations!</h1>
+            <p class="main_headingpara">
+              Your cardpack is opening on the Bitcoin Cash blockchain now...
+            </p>
+
+            <img src="assets/lootbox.gif" class="img-fluid mn_image" />
+          </div>
+          <h1 class="mainindex_heading white">Click to check out your cards.</h1>
+          <div class="row justify-content-center">
+            <div
+							class="col-lg-3"
+              [ngClass]="{'offset-1': i === 3}"
+              *ngFor="let card of currentBundle; let i = index">
+              <div class="flip-card" [ngClass]="{'active':isClicked[i]}" (click)="isClicked[i] = (isClicked[i]? false :true )">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img
+                      src="./assets/images/open_card.png"
+                      class="img-fluid mn_image"
+                    />
+                  </div>
+                  <div class="flip-card-back">
+                    <img [src]="card.cardImage" class="img-fluid mn_image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="col-lg-3">
+                  <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./assets/images/open_card.png" class="img-fluid mn_image">
+                        </div>
+                        <div class="flip-card-back">
+                          <img src="./assets/images/openboxhover.png" class="img-fluid mn_image">
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./assets/images/open_card.png" class="img-fluid mn_image">
+                        </div>
+                        <div class="flip-card-back">
+                          <img src="./assets/images/openboxhover.png" class="img-fluid mn_image">
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-lg-3 offset-1">
+                  <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./assets/images/open_card.png" class="img-fluid mn_image">
+                        </div>
+                        <div class="flip-card-back">
+                          <img src="./assets/images/openboxhover.png" class="img-fluid mn_image">
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./assets/images/open_card.png" class="img-fluid mn_image">
+                        </div>
+                        <div class="flip-card-back">
+                          <img src="./assets/images/openboxhover.png" class="img-fluid mn_image">
+                        </div>
+                      </div>
+                    </div>
+              </div> -->
+          </div>
+
+						<div class="separate_bx row justify-content-center" *ngIf="remainedItems.length > 0">
+							<a (click)="onOpenAnotherPack()" class="cmnbtntype_nw blue">Open another pack</a>
+						</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

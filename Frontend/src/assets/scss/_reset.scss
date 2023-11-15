@@ -1,0 +1,140 @@
+html{
+	font-size: 15px;
+}
+body{
+	background-color: $body-bg-color;
+	background-image: url("../../assets/images/body-bg.jpg");
+	background-repeat: no-repeat;
+	background-size: 1900px;
+	background-position: top center;
+	// background-attachment: fixed;
+	font-family: Gotham;
+	color: $body-color;
+	padding-top: 74px;
+	@media(max-width: 1199px){
+		background-size: 1662px;
+	}
+	@media(max-width: 991px){
+		padding-top: 64px;
+	}
+	animation: animateimg 8s ease-in-out infinite;
+	*{
+		outline: none !important;
+	}
+}
+@keyframes animateimg {
+	0% {background-position:center 0}
+	50% {background-position:center 40px}
+	100% {background-position:center 0}
+}
+h1,h2,h3,h4,h5,h6{
+	color: #ffffff;
+	margin-bottom: 15px;
+	font-family: GothamMedium;
+}
+a,a:hover{
+	color: #9cced1;
+	text-decoration: none;
+}
+.primary-btn{
+	font-family: GothamMedium;
+	font-size: 12px;
+	font-weight: 500;
+	color: #9cced1;
+	box-shadow: none;
+	// width: 127px;
+	// height: 43px;
+	padding: 11px 44px;
+	border-radius: 21.5px;
+	border: solid 2px $btn-border-color;
+	background-color: transparent;
+	&:hover{
+		background-color: $btn-border-color;
+		color: #ffffff;
+	}
+}
+@media(min-width: 1200px){
+	.container{
+		max-width: 1190px;
+	}
+}
+@media(min-width: 1440px){
+	.container{
+		max-width: 1408px;
+	}
+}
+h2{
+	font-size: 24px;
+}
+h3{
+	font-size: 22px;
+}
+h4{
+	font-size: 20px;
+}
+h5{
+	font-size: 18px;
+}
+h6{
+	font-size: 15px;
+}
+label{
+	font-size: 15px;
+	color: #ffffff;
+	font-weight: normal;
+}
+p{
+	font-size: 14px;
+	font-family: Gotham;
+	line-height: 1.3;
+}
+.primary-text{
+	color: #9cced1;
+}
+.golden-text{
+	color: #f6bf14;
+}
+
+/* You can add global styles to this file, and also import other style files */
+.modal.show .modal-dialog {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.modal-content {
+	background-color: #101e2c;
+	.modal-header {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+	}
+	form {
+		input {
+			background-color: #0e1822;
+			border: 0;
+			width: 100%;
+			color: #898989;
+			&:focus {
+				background-color: #0e1822;
+				border: 0;
+				outline: 0;
+				box-shadow: none;
+				color: #898989;
+			}
+		}
+		button {
+			max-width: 125px;
+			&:focus {
+				outline: 0;
+				border: 0;
+				box-shadow: none;
+			}
+			&.modal-btn-close {
+				background-color: #e54343;
+				&:hover {
+					color: #fff !important;
+				}
+			}
+		}
+	}
+}

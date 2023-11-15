@@ -1,0 +1,42 @@
+.formSection {
+    padding: 50px;
+  }
+  .signIn {
+    padding: 60px;
+  }
+  .input-eye2 {
+    position: absolute;
+    right: -28px;
+    top: 40px;
+    cursor: pointer;
+  }
+  .formSection form label {
+    float:left;
+  }
+  .input-eye{
+    position: absolute;
+    right: 10px;
+    top: 44px;
+    font-size: 100%;
+  }
+  @media (max-width: 768px) {
+    .signIn .formSection {
+      width: 95%;
+      margin: auto;
+    }
+  }
+  @media (min-width: 992px) {
+    .signIn .formSection {
+      width: 80%;
+      margin: auto;
+    }
+    .signIn .formSection form button {
+      min-width: 168px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .signIn .formSection {
+      width: 40%;
+      margin: auto;
+    }
+  }

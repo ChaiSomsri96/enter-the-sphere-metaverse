@@ -1,0 +1,590 @@
+<section class="top-filter">
+	<div class="container">
+		<div class="filter-items-wrap d-flex flex-wrap">
+			<div class="filter-item">
+				<div class="filter-title">
+					<h6>RARITY <span><button class="btn clear-btn" *ngIf="isRaritySelected" (click)="clearRarity()">Clear Filter</button></span></h6>
+				</div>
+				<ul class="list-unstyled filter-rarity-list">
+					<ng-container *ngFor="let item of rarityDetails" >
+						<li (click)="selectRarity(item.id)">
+
+						<a href="javascript:void(0);" tooltip="{{item.card_rarity}}" placement="bottom" show-delay="0" hide-delay='0'>
+							<img src="{{item.image}}" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li>
+					</ng-container>
+					<!-- <li>
+						<a href="javascript:void(0);">
+							<img src="assets/images/rarity1.png" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							<img src="assets/images/rarity2.png" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							<img src="assets/images/rarity3.png" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							<img src="assets/images/rarity4.png" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							<img src="assets/images/rarity5.png" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li> -->
+				</ul>
+			</div>
+			<div class="filter-item">
+				<div class="filter-title">
+					<h6>TYPE <span><button class="btn clear-btn" *ngIf="isTypeSelected" (click)="clearType()">Clear Filter</button></span></h6>
+				</div>
+				<ul class="list-unstyled filter-type-list">
+					<ng-container *ngFor="let item of typeDetails" >
+						<li (click)="selectType(item.id)">
+							<a href="javascript:void(0);" tooltip="{{item.card_type}}" placement="bottom" show-delay="0" hide-delay='0'>
+								<img src="{{item.image}}" width="45" height="45" class="img-fluid" alt="">
+							</a>
+					</li>
+					</ng-container>
+					<!-- <li>
+						<a href="javascript:void(0);">
+							<img src="assets/images/type1.png" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							<img src="assets/images/type2.png" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							<img src="assets/images/type3.png" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							<img src="assets/images/type4.png" width="45" height="45" class="img-fluid" alt="">
+						</a>
+					</li> -->
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="sphere-card-section marketpage">
+	<div class="container">
+		<div class="sphere-card-grid row">
+			<div *ngFor="let data of allCardsData" class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail/{{data.uuid}}">
+					<div class="image-wrap">
+						<img src="{{data.cardImage}}" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							${{data.cost}}
+						</div>
+						<!-- <div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div> -->
+					</div>
+					<div class="sphere-card-content position-relative">
+						<!-- <div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div> -->
+						<div class="text-content text-center">
+							<h3>{{data.name}}</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>{{data?.type}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<!-- <div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mx-auto col-sm-10 col-md-6 col-lg-4 col-xl-3">
+				<div class="sphere-card" routerLink="/card-detail">
+					<div class="image-wrap">
+						<img src="assets/images/card-sample.png" width="760" height="1061" alt="Card" class="img-fluid">
+						<div class="price-wrap">
+							$9.00
+						</div>
+						<div class="rarity-icon">
+							<img src="assets/images/rarity1.png" class="img-fluid" width="70" height="68" alt="Rarity">
+							<img src="assets/images/8.svg" class="img-fluid level" width="20" height="68" alt="level">
+						</div>
+					</div>
+					<div class="sphere-card-content position-relative">
+						<div class="stats-listing">
+							<div class="attack-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/strikebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="defence-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/defencebg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+							<div class="health-stat stat shine-effect">
+								<a class="d-inline-block" href="javascript:void(0);">
+									<img src="assets/images/healthbg.png" width="50" height="50" class="img-fluid" alt="">
+									<span class="stat-value">+1</span>
+								</a>
+							</div>
+						</div>
+						<div class="text-content">
+							<h3>THRONE</h3>
+						</div>
+						<div class="speciality-wrap">
+							<span>EQUIPMENT</span>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+</section>

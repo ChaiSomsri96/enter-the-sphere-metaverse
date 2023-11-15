@@ -1,0 +1,46 @@
+<section class="tutorial">
+  <div class="container">
+    <div>
+      <ul class="list-unstyled mission-list">
+        <progress class="missionProgress" value="{{getCompletedMissionCount()}}"
+          max="{{missionsData?missionsData.length:0}}">
+        </progress>
+        <div class="separate_bx small mission"
+          [ngStyle]="{'background-color': isDisabled(mission)? '#00000066':'darkslategrey'}"
+          *ngFor="let mission of missionsData; let i = index">
+          <div class="media" style="width: 100%">
+            <div class="media-body" style="display: contents; width: 100%">
+              <img style="align-self: center; max-width: 300px; " class="img-fluid"
+                [ngStyle]="{filter: isDisabled(mission)? 'grayscale(1)':''}"
+                src="assets/images/tutorial/{{mission.meta.image}}" />
+            </div>
+            <div style="padding: 10px; text-align: center; width: 100%">
+
+              <h4 class="heading">
+                <a href="#">{{mission.name + (mission.goal>1?(' [' +getMissionProgress(mission) + ']'):"")}}</a>
+              </h4>
+
+              <div class="media-body-vertical" style="display: contents; width: 100%">
+                <img style="align-self: center; " class="img-fluid"
+                  [ngStyle]="{filter: isDisabled(mission)? 'grayscale(1)':''}"
+                  src="assets/images/tutorial/{{mission.meta.image}}" />
+              </div>
+
+              <a class="description">{{mission.meta.description}} </a>
+              <div style="position:relative; margin: 0 auto; text-align: center; padding-top: 8px;">
+                <div>
+                  <div><button (click)="onSelect(mission)" [ngStyle]="{'background-color':getActionColor(mission)}"
+                      class="btn-mission-action">{{getAction(mission)}}</button>
+                  </div>
+                  <div><a *ngIf="mission.reward" href="#" style="padding-top:5px;float:right">REWARD:
+                      {{getReadableReward(mission)}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</section>

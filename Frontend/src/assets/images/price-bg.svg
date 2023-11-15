@@ -1,0 +1,29 @@
+<svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="135px" height="92px">
+<defs>
+<filter filterUnits="userSpaceOnUse" id="Filter_0" x="0px" y="0px" width="135px" height="92px"  >
+    <feOffset in="SourceAlpha" dx="-1.35" dy="5.846" />
+    <feGaussianBlur result="blurOut" stdDeviation="0" />
+    <feFlood flood-color="rgb(0, 0, 0)" result="floodOut" />
+    <feComposite operator="atop" in="floodOut" in2="blurOut" />
+    <feComponentTransfer><feFuncA type="linear" slope="0.36"/></feComponentTransfer>
+    <feMerge>
+    <feMergeNode/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+<linearGradient id="PSgrad_0" x1="95.106%" x2="0%" y1="30.902%" y2="0%">
+  <stop offset="0%" stop-color="rgb(28,159,157)" stop-opacity="1" />
+  <stop offset="100%" stop-color="rgb(0,104,102)" stop-opacity="1" />
+</linearGradient>
+
+</defs>
+<g filter="url(#Filter_0)">
+<path fill-rule="evenodd"  fill="rgb(28, 155, 153)"
+ d="M1.360,0.982 L1.360,63.869 L2.007,63.869 L67.734,86.003 L133.462,63.869 L134.108,63.869 L134.108,0.982 L1.360,0.982 Z"/>
+</g>
+<path fill="url(#PSgrad_0)"
+ d="M1.360,0.982 L1.360,63.869 L2.007,63.869 L67.734,86.003 L133.462,63.869 L134.108,63.869 L134.108,0.982 L1.360,0.982 Z"/>
+</svg>

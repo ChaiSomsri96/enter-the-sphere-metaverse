@@ -1,0 +1,177 @@
+@import "../font/gotham.css";
+@import "custom-var";
+@import "reset";
+@import "common";
+@import '~ngx-toastr/toastr';
+
+
+.formSection {
+  border: 2px solid #09a5a3 !important;
+  background: #101d2a;
+  border-radius: 10px !important;
+}
+.sec-heading {
+  font-size: 37px;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: center;
+    background: -webkit-linear-gradient(#447473, #006866);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+.signIn .formSection form input, .signIn .formSection form textarea {
+  min-height: 48px !important;
+  border-radius: 6px !important;
+  border: 1px solid #45a29e !important;
+  background-color: rgba(11, 12, 16, 0.6) !important;
+  color: #45a29e !important;
+}
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442;
+}
+.custom-checkbox input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+.checkbox input {
+  border: 1px solid #45bfbe;
+}
+.custom-checkbox label {
+  position: relative;
+  cursor: pointer;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin: 0;
+  text-align: left;
+  color: #45a29e;
+  font-size: 17px;
+  padding-left: 25px;
+  line-height: 18px;
+}
+.custom-checkbox label:before {
+  content: '';
+  -webkit-appearance: none;
+  background-color: #1f2833;
+  border: 1px solid #45a29e;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%), inset 0px -15px 10px -12px rgb(0 0 0 / 5%);
+  padding: 8px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 4px;
+  position: absolute;
+  right: 0;
+}
+.custom-checkbox input:checked + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  left: 6px;
+  right: inherit;
+  border: solid #66fcf1;
+  border-width: 0 2px 2px 0;
+  transform: rotate(
+45deg
+);
+}
+.checkbox .custom-checkbox label::before {
+  right: inherit;
+  left: 0;
+}
+.foot_btmbx label a {
+  color: #0eb689;
+}
+.cmnbtntype_nw {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  border: none;
+  padding: 14px 35px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: -1px 1px 0px 0px rgb(0 0 0 / 36%);
+  background: linear-gradient(
+288deg
+, rgba(28, 159, 157, 1) 0%, rgba(0, 104, 102, 1) 100% );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006866', endColorstr='#1c9f9d',GradientType=1 );
+}
+.cmnbtntype_nw:hover {
+  background: linear-gradient(
+45deg
+, rgba(28, 159, 157, 1) 0%, rgba(28, 159, 157, 1) 100% );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c9f9d', endColorstr='#1c9f9d',GradientType=1 );
+}
+
+.formSection form label {
+  font-weight: 300;
+  line-height: 1.75;
+  letter-spacing: 0.58px;
+  color: #fff !important;
+  font-size:12px;
+}
+
+button.cmnbtntype_nw {
+  margin-top: 30px !important;
+  margin-bottom: 25px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  font-family: 'gothamBold';
+}
+
+.already-log {
+  color: #fff;
+}
+a.blue-log {
+  text-transform: uppercase;
+  color:#fff !important;
+}
+.foot_btmbx {
+    margin-top: 10px;
+}
+a.forgot-pass {
+  color: #fff !important;
+}
+section.signIn {
+  margin-top: 100px;
+}
+ .mat-tab-body-content {
+  background-color: rgb(23 48 73 / 72%);
+  padding: 25px;
+}
+
+.mat-tab-label,
+.mat-tab-link {
+  color: #ffffff;
+  opacity: 1;
+  text-transform: uppercase;
+  height: 58px;
+  font-size: 15px;
+  padding: 0 63px;
+  border-top: 3px solid transparent;
+}
+
+.mat-tab-label.mat-tab-label-active,
+.mat-tab-link.mat-tab-label-active {
+  background-color: rgb(23 48 73 / 72%) !important;
+  border-top: 3px solid #45a29e !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: transparent;
+}
+iframe#telegram-login-ets_tg_bot {
+  margin-bottom: 20px !important;
+}

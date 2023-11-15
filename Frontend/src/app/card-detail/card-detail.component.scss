@@ -1,0 +1,157 @@
+$text-warning:#f6bf14;
+$text-dark:#0f1822;
+$white:#ffffff;
+$text-light:#898989;
+$text-info:#2e8fe8;
+$bg-dark:#0d1112;
+// card-detail-title
+.card-detail-title{
+	height: 107.5px; 
+	background-color: rgba(#02050a,0.18);
+	padding:25px 0;
+}
+// card-detail-info
+.card-detail-info{
+   padding: 40px 0 40px;
+   .card-stats-meta {
+      padding: 10px 0px;
+      border-radius: 2.5px;
+      background-color:rgba($text-dark, 0.4);
+      .span-text {
+         color:$text-warning;
+      }
+      .span-text-2{
+         color: $text-info;
+      }
+   }
+}
+// Sphere-tabsection
+.sphere-tabs-section {
+   .nav-item{
+      margin-right:90px;
+      @media(max-width:1199px){
+         margin-right: 15px;
+      }
+      .nav-link{
+         border: 0;
+         display: block;
+         padding: 25px 45px;
+         font-size: 12px;
+         font-weight: bold;
+         color:#898989;
+         @media(max-width:1199px){
+            padding: 22px 30px;
+         }
+         @media(max-width:991px){
+            padding: 15px 12px;
+         }
+         &.active{
+            color:$white;
+            background-color: transparent;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom:3px solid $text-warning;
+         }
+      }
+   }
+   .card-image-wrap{
+      width: 100%;
+      text-align: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 636px;
+      background-color:$bg-dark;
+      @media(max-width:537px){
+         min-height: auto;
+      }
+   }
+}
+// Former-vers-section
+.former-vers-sec {
+   padding:40px 0px 56px;
+  @media(min-width:1200px){
+   .sphere-card {
+      margin-bottom: 0.9rem;
+   }
+  }
+}
+// table-wrap
+.table-wrap {
+   background-color:#0e1822;
+   .table-filter {
+      padding:22px 35px;
+      border-bottom:1px solid #121f2c;
+   }
+   .btn-large {
+      padding:9px 43px;
+   }
+   .filter-right {
+      .dropdown-toggle {
+         width: 104px;
+         padding: 7px;
+      }
+   }
+   .table-icon {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      background-color: #000000;
+      border-radius: 20px;
+      font-size: 10px;
+      vertical-align: middle;
+      padding: 3px;
+      text-align: center;
+      color: #f7f7f7;
+   }
+   .table-content {
+      padding:0px 35px 25px;
+      tbody tr{
+         &:nth-of-type(2n+1){
+            background-color: #121f2c;
+         }
+      }
+      th{
+         padding: 1.65rem 0.15rem;
+         font-size: 16px;
+         font-weight: bold;
+         text-align: center;
+         color: #f7f7f7;
+      }
+      td{
+         padding:0.85rem 1.15rem;
+         text-align: center;
+         font-size: 14px;
+         line-height: 1.57;
+         color: #898989;
+      }
+   }
+   &.stats-tabs{
+      .table-content{
+         th{
+            padding: 1.45rem 0.15rem 1.95rem;
+         }
+      }
+   }
+}
+
+.tint-over{
+   position: relative;
+   &::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(#000,0.78);
+      z-index: 1;
+   }
+   > div {
+      position: relative;
+      z-index: 2;
+   }
+}
+
+

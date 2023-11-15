@@ -1,0 +1,68 @@
+<div class="signIn">
+    <div class="formSection " *ngIf="wallet" style="margin-top: 100px;background: #101d2a;">
+      <div class="text-center">
+        <h3>SLP QR Code</h3>
+        <ngx-qrcode
+          [elementType]="elementType"
+          [errorCorrectionLevel]="correctionLevel"
+          [value]="wallet.slpAddress"
+          cssClass="bshadow"
+        ></ngx-qrcode>
+        <div class="container" style="margin-top: 50px;">
+          <form [formGroup]="walletForm" >
+            <div class="row">
+              <div class="form-group mb-4 col-lg-12">
+                <div class="position-relative">
+                  <label for="slpaddress">SLP Address</label>
+                  <input type="text" class="form-control" id="slpaddress" placeholder="Your Wallet Address"
+                  formControlName="slpAddress" readonly/>
+                  <div class="input-eye2">
+                    <span class="">
+                      <i class="fa fa-copy"
+                      (click)="copyMessage(walletForm.controls['slpAddress'].value)"></i>
+                    </span>
+                 </div>
+                </div>
+
+              </div>
+
+              <div class="form-group mb-2 col-lg-12 position-relative">
+                <div class="position-relative">
+                  <label for="privatekey">Private Key</label>
+                  <input class="form-control pr-5" id="privatekey" [type]="fieldTextType ? 'text' : 'password'"
+                    placeholder="Your Private key" formControlName="privateKey" readonly />
+                    <div class="input-eye">
+                      <span class="">
+                        <i class="fa"
+                        [ngClass]="{
+                          'fa-eye-slash': !fieldTextType,
+                          'fa-eye': fieldTextType
+                        }"
+                        (click)="toggleFieldTextType()"></i>
+                      </span>
+                   </div>
+
+                   <div class="input-eye2">
+                    <span class="">
+                      <i class="fa fa-copy"
+                      (click)="copyMessage(walletForm.controls['privateKey'].value)"></i>
+                    </span>
+                 </div>
+                </div>
+
+              </div>
+
+              <!-- <div class="recaptchaContainer px-3">
+
+              </div> -->
+            </div>
+          </form>
+        </div>
+
+				<div>
+					<button (click)="toBalanceBCH()"> Check balance and withdraw </button>
+				</div>
+
+      </div>
+    </div>
+  </div>

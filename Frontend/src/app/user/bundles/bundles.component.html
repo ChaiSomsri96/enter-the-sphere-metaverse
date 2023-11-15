@@ -1,0 +1,281 @@
+<section
+  class="main_indexarea"
+  [ngStyle]="{ 'background-image': 'url(assets/innerpage_bg.png)' }"
+>
+  <div class="container">
+    <div class="tab_area">
+      <mat-tab-group>
+        <mat-tab label="closed box">
+
+					<div class="separate_bx" *ngIf="closedBundles.length > 0">
+						<a (click)="onOpenAnotherPack()" class="cmnbtntype_nw blue">Open another pack</a>
+					</div>
+          <div *ngIf="closedBundles.length === 0" class="separate_bx small">
+            <div class="media">
+              <div class="media-body text-center">
+                <h5 class="heading">
+                  <a href="#">You Don't Have Any bundles!</a>
+                </h5>
+                <a routerLink="/lootbox" class="cmnbtntype_nw green"
+                  >Buy Now!</a
+                >
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let bundle of closedBundles" class="separate_bx">
+            <div class="media">
+              <img class="mr-3 media_img" src="assets/lootbox.gif" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Mega Forge Bundle</a></h5>
+                <ul>
+                  <li>
+                    Purchased on {{ bundle.createdAt | date: "MMM d, y" }}
+                  </li>
+                </ul>
+                <a (click)="openBox(bundle.uuid)" class="cmnbtntype_nw green"
+                  >open the box</a
+                >
+              </div>
+              <a (click)="giftTo()" class="cmnbtntype_nw blue"
+                ><i class="icofont icofont-gift"></i> withdraw to
+                <i class="icofont icofont-simple-right"></i
+              ></a>
+            </div>
+          </div>
+          <!-- <div class="separate_bx">
+            <div class="media">
+              <img class="mr-3 media_img" src="assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box two</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                </ul>
+                <a href="#" class="cmnbtntype_nw green">open the box</a>
+              </div>
+              <a href="#" class="cmnbtntype_nw blue"
+                ><i class="icofont icofont-gift"></i> gift to
+                <i class="icofont icofont-simple-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="separate_bx">
+            <div class="media">
+              <img class="mr-3 media_img" src="assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box three</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                </ul>
+                <a href="#" class="cmnbtntype_nw green">open the box</a>
+              </div>
+              <a href="#" class="cmnbtntype_nw blue"
+                ><i class="icofont icofont-gift"></i> gift to
+                <i class="icofont icofont-simple-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="separate_bx">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box four</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                </ul>
+                <a href="#" class="cmnbtntype_nw green">open the box</a>
+              </div>
+              <a href="#" class="cmnbtntype_nw blue"
+                ><i class="icofont icofont-gift"></i> gift to
+                <i class="icofont icofont-simple-right"></i
+              ></a>
+            </div>
+          </div> -->
+        </mat-tab>
+        <mat-tab label="opened box">
+          <div *ngIf="openedBundles.length === 0" class="separate_bx small">
+            <div class="media">
+              <div class="media-body text-center">
+                <h5 class="heading">
+                  <a href="#">You Don't Have Any Open bundles!</a>
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="separate_bx small" *ngFor="let bundle of openedBundles">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/lootbox.gif" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Mega Forge Bundle</a></h5>
+                <ul>
+                  <li>
+                    Purchased on {{ bundle.createdAt | date: "MMM d, y" }}
+                  </li>
+                  <li>
+                    <span>Box opened</span>
+                    {{ bundle.updatedAt | date: "MMM d, y" }}
+                  </li>
+                </ul>
+              </div>
+              <a
+                (click)="viewBox(bundle.uuid)"
+                class="cmnbtntype_nw green"
+                class="cmnbtntype_nw"
+                >view details</a
+              >
+            </div>
+          </div>
+          <!-- <div class="separate_bx small">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box two</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                  <li><span>Box opened</span> on 6-Jan-2021</li>
+                </ul>
+              </div>
+              <a href="#" class="cmnbtntype_nw">view details</a>
+            </div>
+          </div>
+          <div class="separate_bx small">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box three</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                  <li><span>Box opened</span> on 6-Jan-2021</li>
+                </ul>
+              </div>
+              <a href="#" class="cmnbtntype_nw">view details</a>
+            </div>
+          </div>
+          <div class="separate_bx small">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box four</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                  <li><span>Box opened</span> on 6-Jan-2021</li>
+                </ul>
+              </div>
+              <a href="#" class="cmnbtntype_nw">view details</a>
+            </div>
+          </div>
+          <div class="separate_bx small">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box five</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                  <li><span>Box opened</span> on 6-Jan-2021</li>
+                </ul>
+              </div>
+              <a href="#" class="cmnbtntype_nw">view details</a>
+            </div>
+          </div> -->
+        </mat-tab>
+
+        <mat-tab label="My cards">
+					<div class="separate_bx" *ngIf="userCards.length > 0">
+						<a (click)="onGotoDeckApp()" class="cmnbtntype_nw blue">Go to deck app</a>
+					</div>
+          <div *ngIf="userCards.length === 0" class="separate_bx small">
+            <div class="media">
+              <div class="media-body text-center">
+                <h5 class="heading">
+                  <a href="#">You Don't Have Any Cards!</a>
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="separate_bx small" *ngFor="let card of userCards">
+            <div class="media">
+              <img class="mr-3 media_img" [src]="card.cardImage" />
+              <div class="media-body">
+                <h5 class="heading">
+                  <a href="#">{{ card.name }}</a>
+                </h5>
+                <ul>
+                  <li>Purchased on {{ card.createdAt | date: "MMM d, y" }}</li>
+                  <li>
+                    <span>Box opened</span>
+                    {{ card.updatedAt | date: "MMM d, y" }}
+                  </li>
+                </ul>
+              </div>
+              <a
+                (click)="addCardforSale(card.uuid)"
+                class="cmnbtntype_nw green"
+                class="cmnbtntype_nw"
+                >Sell</a
+              >
+							<a
+                (click)="withdrawCard(card.uuid)"
+                class="cmnbtntype_nw green"
+                class="cmnbtntype_nw"
+                >Withdraw</a
+              >
+            </div>
+          </div>
+          <!-- <div class="separate_bx small">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box two</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                  <li><span>Box opened</span> on 6-Jan-2021</li>
+                </ul>
+              </div>
+              <a href="#" class="cmnbtntype_nw">view details</a>
+            </div>
+          </div>
+          <div class="separate_bx small">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box three</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                  <li><span>Box opened</span> on 6-Jan-2021</li>
+                </ul>
+              </div>
+              <a href="#" class="cmnbtntype_nw">view details</a>
+            </div>
+          </div>
+          <div class="separate_bx small">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box four</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                  <li><span>Box opened</span> on 6-Jan-2021</li>
+                </ul>
+              </div>
+              <a href="#" class="cmnbtntype_nw">view details</a>
+            </div>
+          </div>
+          <div class="separate_bx small">
+            <div class="media">
+              <img class="mr-3 media_img" src="./assets/images/card_bx.png" />
+              <div class="media-body">
+                <h5 class="heading"><a href="#">Dummy box five</a></h5>
+                <ul>
+                  <li>Purchased on 5-Jan-2021</li>
+                  <li><span>Box opened</span> on 6-Jan-2021</li>
+                </ul>
+              </div>
+              <a href="#" class="cmnbtntype_nw">view details</a>
+            </div>
+          </div> -->
+        </mat-tab>
+
+
+      </mat-tab-group>
+    </div>
+  </div>
+</section>

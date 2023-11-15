@@ -1,0 +1,29 @@
+<section class="signIn">
+  <div class="banner_custom position-relative d-flex align-items-center justify-content-center">
+
+  </div>
+
+  <div class="container formSection p-4 p-lg-5 mx-auto" style="margin-top: 100px;background: #101d2a;">
+    <div>
+      <form>
+        <div class="bannerContent helpDeskBanner mx-2">
+          <h1 class="text-white sec-heading text-center px-3 font-weight-light mb-5">
+            Verify Email
+          </h1>
+        </div>
+        <div class="row">
+          <div *ngIf="emailStatus == EmailStatus.Verifying">
+            Verifying...
+        </div>
+        <div *ngIf="emailStatus == EmailStatus.Failed">
+            Verification failed, you can also verify your account using the <a routerLink="forgot-password">forgot password</a> page.
+        </div>
+        </div>
+        <div class="booster-form-btn text-center">
+          <button [routerLink]="['/']" class="cmnbtntype_nw">Back to home</button>
+      </div>
+      </form>
+      </div>
+      </div>
+</section>
+

@@ -1,0 +1,125 @@
+/*------------------------------------------------------------------
+
+  Preloader
+
+-------------------------------------------------------------------*/
+.preloader-wrapp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #110311;
+  z-index: 100000000;
+}
+
+.preloader-wrapp .preloader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+
+.preloader-wrapp .message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+	margin:0;
+	margin-top: 100px;
+
+	transform: translate(-50%,-50%);
+}
+
+.preloader-wrapp > img {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 180px;
+  margin-bottom: -10px;
+  margin-left: -90px;
+  z-index: 2;
+}
+
+
+.preloader {
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  background-clip: padding-box;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  -webkit-transform: perspective(200px) rotateX(80deg);
+          transform: perspective(200px) rotateX(80deg);
+  -webkit-transform-origin: 50% 60%;
+      -ms-transform-origin: 50% 60%;
+          transform-origin: 50% 60%;
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), color-stop(90%, black));
+  -webkit-mask: linear-gradient(rgba(0, 0, 0, 0.1), black 90%);
+}
+
+.preloader::before,
+.preloader::after {
+  content: "";
+  position: absolute;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  margin: -5px;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-color: transparent;
+  border-top-color: #1c9f9d;
+  border-radius: inherit;
+  opacity: .85;
+  -webkit-animation: youplay-preloader-spin 1s infinite;
+          animation: youplay-preloader-spin 1s infinite;
+}
+
+.preloader::after {
+  -webkit-animation-delay: 0.35s;
+          animation-delay: 0.35s;
+}
+
+@-webkit-keyframes youplay-preloader-spin {
+  100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+  }
+}
+
+@keyframes youplay-preloader-spin {
+  100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+  }
+}
+
+.preloader-wrapp > img,
+.preloader-wrapp > .preloader {
+  -webkit-animation: youplay-preloader-fade .5s;
+          animation: youplay-preloader-fade .5s;
+}
+
+@-webkit-keyframes youplay-preloader-fade {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes youplay-preloader-fade {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}

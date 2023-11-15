@@ -1,0 +1,93 @@
+$button-buy: #1a9b99;
+$button-sale: #ca5d22;
+
+/* background: */
+progress::-webkit-progress-bar {
+    background-color: black;
+    width: 100%;
+}
+progress {
+    background-color: black;
+}
+
+/* value: */
+progress::-webkit-progress-value {
+    background-color: darkslategray !important;
+}
+progress::-moz-progress-bar {
+    background-color: darkslategray !important;
+}
+progress {
+    color: green;
+}
+
+.mission-list {
+    width: 100%;
+    li {
+        display: inline-block;
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 3px;
+            border: solid 1px #344a63;
+        }
+    }
+
+    .missionProgress {
+        background-color: #0f1b28;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .mission {
+        border-radius: 3px;
+        background-color: #0f1b28;
+        padding: 5px 8px;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px 9px rgba(#000, 0.1);
+        }
+
+        .media {
+            display: inline-flex;
+        }
+
+        @media screen and (max-width: 768px) {
+            .description {
+                display: none !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .media-body {
+                display: none !important;
+            }
+        }
+
+        @media screen and (min-width: 480px) {
+            .media-body-vertical {
+                display: none !important;
+            }
+        }
+
+        .btn-mission-action {
+            background-color: $button-buy;
+            padding: 8px 30px;
+            border: 0;
+            border-radius: 5px;
+            font-family: GothamBold;
+            font-size: 18px;
+            letter-spacing: -0.45px;
+            text-align: center;
+            color: #ffffff;
+            line-height: 1.4;
+            transition: all 0.3s ease-out;
+        }
+    }
+}

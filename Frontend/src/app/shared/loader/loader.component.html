@@ -1,0 +1,5 @@
+<div *ngIf="isLoading | async" class="page-preloader preloader-wrapp">
+  <img src="https://enter-the-sphere.com/assets/images/logo-light.png" alt="">
+  <div class="preloader"></div>
+	<div class="message">{{message | async}}</div>
+</div>

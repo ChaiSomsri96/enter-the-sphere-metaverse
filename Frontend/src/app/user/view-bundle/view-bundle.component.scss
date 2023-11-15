@@ -1,0 +1,105 @@
+.mainindex_heading{
+  font-size: 37px;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom:15px;
+  text-align: center;
+  background: -webkit-linear-gradient(#447473, #006866);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mainindex_heading.white{
+  font-size: 30px;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom:30px;
+  text-align: center;
+  background: transparent;
+  color: #ffffff;
+  -webkit-background-clip: text;
+  text-shadow: -1px 4px 0px rgba(0, 0, 0, 0.36);
+  -webkit-text-fill-color:#ffffff;
+}
+
+@keyframes float {
+0% {
+  box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+  transform: translatey(0px);
+}
+50% {
+  box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+  transform: translatey(-20px);
+}
+100% {
+  box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+  transform: translatey(0px);
+}
+}
+
+
+.main_headingpara{
+  font-size:18px;
+  font-weight: bold;
+  color:#ffffff;
+  text-align: center;
+}
+
+.maininnerarea{
+  padding-top:70px;
+  padding-bottom:50px;
+}
+
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: fit-content;
+  min-height: 465px;
+  perspective: 1000px;
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+  box-shadow: none !important;
+}
+.flip-card img{
+ max-height:360px;
+}
+.opencard_area .top_bx{
+   margin-bottom: 70px;
+   text-align:center;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.flip-card.active .flip-card-inner {
+  transform: rotateY(180deg);
+
+}
+// .flip-card:hover .flip-card-inner {
+//   transform: rotateY(180deg);
+// }
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: black;
+}
+
+.flip-card-back {
+  color: white;
+  transform: rotateY(180deg);
+}

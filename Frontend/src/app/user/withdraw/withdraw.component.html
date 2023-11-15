@@ -1,0 +1,68 @@
+<section
+  class="maininnerarea"
+  [ngStyle]="{ 'background-image': 'url(assets/payment_bg.jpg)' }"
+>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-11">
+        <div
+          class="frmbx_inner cmn_frm payment"
+          [ngStyle]="{ 'background-image': 'url(assets/cardnw.png)' }"
+        >
+          <div class="top_bx">
+            <div class="media">
+              <div class="col-lg-4 offset-2">
+                <img
+                  [src]="card.illustration"
+                  class="img-fluid mn_image"
+                />
+              </div>
+              <div class="col-lg-6">
+                <div class="cardright_divitn">
+                  <div class="media-body">
+										<h1 class="mainindex_heading">Withdraw {{card.name}}</h1>
+                    <p>You are about to withdraw card from The Sphere. some disclaimer and info here</p>
+                    <div class="media_btm">
+                      <div class="media">
+                        <img
+                          src="assets/images/sml_card.png"
+                          class="img-fluid mn_image"
+                        />
+                        <div class="col-lg-6">
+                          <div class="media-body">
+                            <h1 class="mainindex_heading">
+															Receiver SLP address
+                            </h1>
+                            <div
+                              class="form-group mb-0"
+                              [ngStyle]="{
+                                'background-image': 'url(assets/new_area.png)'
+                              }"
+                            >
+                              <!-- <h1 class="smallheading">Input here</h1> -->
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="simpleledger:"
+                                [(ngModel)]="destination"
+                                />
+                            </div>
+                            <a
+                              (click)="onWithdraw()"
+                              class="btn carusel_btn"
+                              ><span>Withdraw</span></a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

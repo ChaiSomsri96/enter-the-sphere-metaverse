@@ -1,0 +1,239 @@
+<section class="signIn">
+  <div
+    class="banner_custom position-relative d-flex align-items-center justify-content-center"
+  >
+    <div class="bannerContent helpDeskBanner mx-2"></div>
+  </div>
+
+  <div
+    class="container formSection p-4 p-lg-5 mx-auto"
+    style="margin-top: 100px; background: #101d2a"
+  >
+  <div class="row">
+    <div class="col-md-8">
+
+    </div>
+  </div>
+    <div>
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <h1
+          class="text-white sec-heading text-center px-3 font-weight-light mb-5"
+        >
+          Register
+        </h1>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputemail"
+              placeholder="First Name"
+              formControlName="firstName"
+            />
+            <div
+              class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+              *ngIf="
+                submitted && registerForm['controls'].firstName.invalid
+              "
+            >
+              Please enter Your first name.
+            </div>
+            <div
+              class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+              *ngIf="
+                submitted && registerForm['controls'].lastName.hasError('pattern')
+              "
+            >
+              Please enter valid first Name.
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputemail"
+              placeholder="Last name"
+              formControlName="lastName"
+            />
+            <div
+              class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+              *ngIf="
+                submitted && registerForm['controls'].lastName.invalid
+              "
+            >
+              Please enter Your last Name.
+            </div>
+            <div
+              class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+              *ngIf="
+                submitted && registerForm['controls'].lastName.hasError('pattern')
+              "
+            >
+              Please enter your last name.
+            </div>
+          </div>
+
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputemail"
+              placeholder="Your email"
+              formControlName="email"
+            />
+            <div
+              class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+              *ngIf="
+                submitted && registerForm['controls'].email.invalid
+              "
+            >
+              Please enter your email.
+            </div>
+            <div
+              class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+              *ngIf="
+                submitted && registerForm['controls'].email.hasError('pattern')
+              "
+            >
+              Please enter valid email.
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+            <input
+              class="form-control pr-5"
+              id="userPassword"
+              [type]="fieldTextType ? 'text' : 'password'"
+              placeholder="Your Password"
+              formControlName="password"
+            />
+            <div class="input-eye">
+              <span class="">
+                <i
+                  class="fa"
+                  [ngClass]="{
+                    'fa-eye-slash': !fieldTextType,
+                    'fa-eye': fieldTextType
+                  }"
+                  (click)="toggleFieldTextType()"
+                ></i>
+              </span>
+            </div>
+
+            <div
+            class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+            *ngIf="
+              submitted && registerForm['controls'].password.invalid
+            "
+          >
+            Please enter your password.
+          </div>
+          <div
+            class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+            *ngIf="
+              submitted && registerForm['controls'].password.hasError('pattern')
+            "
+          >
+            Please enter a valid passsword.
+          </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputemail"
+              placeholder="Confirm Password"
+              formControlName="confirmPassword"
+            />
+            <div
+              class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+              *ngIf="
+                submitted && registerForm['controls'].password.hasError('required')
+              "
+            >
+              Please enter a stronger password.
+            </div>
+            <!-- <div class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded" *ngIf="
+              submitted && registerForm['controls'].email.hasError('pattern')
+            ">
+            Please enter valid email address.
+          </div> -->
+          </div>
+
+          <!-- <div class="form-group mb-4 col-lg-12">
+              <label for="exampleInputemail"><i class="fa fa-envelope" aria-hidden="true"></i> Email Address
+                <span>*</span></label>
+              <input type="text" class="form-control" id="exampleInputemail" placeholder="Your Email Address"
+                 />
+
+            </div> -->
+
+          <!-- <div class="form-group mb-2 col-lg-12 position-relative">
+              <label for="userPassword"><i class="fa fa-lock" aria-hidden="true"></i> Password
+                <span>*</span></label>
+              <div class="position-relative">
+                <input type="text" class="form-control pr-5" id="userPassword"
+                  placeholder="Your Password" formControlName="password" />
+
+              </div>
+
+            </div>  -->
+        </div>
+        <div class="foot_btmbx">
+          <div class="checkbox">
+            <div class="custom-checkbox">
+              <input
+                type="checkbox"
+                id="remember_me"
+                formControlName="active"
+              />
+              <label for="remember_me"
+                >By clicking you agree to the
+                <a href="#">Terms & Conditions</a></label
+              >
+            </div>
+            <div
+            class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded"
+            *ngIf="
+              submitted && registerForm['controls'].active.invalid
+            "
+          >
+            You must accept terms & conditions.
+          </div>
+          </div>
+        </div>
+        <div class="booster-form-btn text-center">
+          <button
+            type="submit"
+            class="cmnbtntype_nw"
+            data-style="zoom-in"
+          >
+            Register
+          </button>
+
+          <div class="already-log">
+            <p class="ass-text mr-1">Already have an account?</p>
+            <a [routerLink]="['/login']" class="blue-log">Log In</a> <br>
+            <div  #script2 id="widget">
+              <!-- <script
+                 async
+                 src="https://telegram.org/js/telegram-widget.js?2"
+                 data-telegram-login="ets_tg_bot"
+                 data-size="medium"
+                 data-auth-url="/"
+                 data-request-access="write"
+               ></script> -->
+          </div>
+          </div>
+        </div>
+        <!-- <div class="d-flex justify-content-between align-items-center mt-4 mb-0">
+            <p class="dontHavaAcc w-auto">
+               <a routerLink="/login">Return to login</a>
+            </p>
+
+          </div> -->
+      </form>
+    </div>
+  </div>
+</section>

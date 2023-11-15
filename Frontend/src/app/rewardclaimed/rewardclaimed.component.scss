@@ -1,0 +1,36 @@
+$button-navigate: #1a9b99;
+$button-close: #ca5d22;
+
+::ng-deep.mat-dialog-container {
+    background-color: darkslategray;
+}
+
+.btn-navigate {
+    background-color: $button-navigate;
+    padding: 8px 30px;
+    border: 0;
+    border-radius: 5px;
+    font-family: GothamBold;
+    font-size: 18px;
+    letter-spacing: -0.45px;
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.4;
+    transition: all 0.3s ease-out;
+    margin: 10px;
+}
+
+.btn-close {
+    background-color: $button-close;
+    padding: 8px 30px;
+    border: 0;
+    border-radius: 5px;
+    font-family: GothamBold;
+    font-size: 18px;
+    letter-spacing: -0.45px;
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.4;
+    transition: all 0.3s ease-out;
+    margin: 10px;
+}

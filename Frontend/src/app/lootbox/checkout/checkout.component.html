@@ -1,0 +1,92 @@
+<section class="maininnerarea" [ngStyle]="{'background-image':'url(assets/payment_bg.jpg)'}">
+  <div class="container">
+ <div class="row justify-content-center">
+     <div class="col-lg-12">
+         <div class="frmbx_inner cmn_frm payment" [ngStyle]="{'background-image':'url(assets/payment_bgsmall.jpg)'}">
+              <div class="top_bx">
+                 <div class="media">
+                     <img src="assets/lootbox.gif" class="img-fluid mn_image">
+                     <div class="media-body">
+                         <h1 class="mainindex_heading">Master Forge</h1>
+                         <h2>Will you forge?</h2>
+                         <p>
+                            At the Master Forge lies the communal Orb Machine. Stationed deep inside the station orbiting Illium-3. The guardians of the battle platform take payment in exchange to use the Orb Machine to create items of extreme combat power.
+                         </p>
+                     </div>
+                 </div>
+             </div>
+             <div class="btn_bx mrg_nw">
+                 <div class="row justify-content-center">
+                     <div class="col-lg-9">
+                         <div class="row justify-content-center">
+                             <div class="col-lg-4 col-sm-4">
+                                 <div class="code_bx">
+                                     Promo: 500 Packs
+                                 </div>
+                             </div>
+                             <div class="col-lg-4 col-sm-4">
+                                 <div class="code_bx">
+                                     Promo: 100 Packs
+                                 </div>
+                             </div>
+                             <div class="col-lg-4 col-sm-4">
+                                 <div class="form-group mb-0">
+                                     <input type="number" min=1 (change)="updateCart()" [(ngModel)]="quantity" class="form-control" />
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="row justify-content-end">
+                             <div class="col-lg-5">
+                                 <div class="total_price text-right">
+                                     <h1>Total:<span>${{quantity * 2}}</span></h1>
+                                 </div>
+                                 <a (click)="togglePurchase()" class="cmnbtntype_nw w-100 d-block text-center">purchase</a>
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+
+
+             </div>
+
+
+
+
+             <div class="row justify-content-center" *ngIf="purchaseBox">
+                 <div class="col-lg-7 col-sm-12">
+                     <div class="price_catr fourthnw price_nwtp bg_inner">
+                         <h1 class="mainindex_heading">Make PAYMENT</h1>
+                         <div class="row align-items-center">
+                             <div class="col-lg-6 col-sm-12">
+                                 <ul class="addon_details mb-0">
+                                     <li>
+                                         <span class="first_heading">Price:</span>
+                                         <span class="third_heading" id="price">${{totalPrice}}</span>
+                                     </li>
+                                     <li>
+                                         <span class="first_heading" id="coupon-code-text">Tax</span>
+                                         <span class="third_heading" id="coupon-code-price">${{totalTax}}</span>
+                                     </li>
+                                     <li>
+                                         <span class="first_heading">Total Price:</span>
+                                         <span class="third_heading green" id="final-price">USD ${{finalPrice}}</span>
+                                     </li>
+                                 </ul>
+                             </div>
+                             <div class="col-lg-6 col-sm-12">
+                                 <div class="btn_bx">
+
+                                     <a (click)="stripePurchase()" class="btn solo_price" data-toggle="modal" data-target="#myModal">By Card <img src="assets/images/paymentlogo.png" class="img-fluid card_img"></a>
+																		 <a (click)="coinpaymentsPurchase()" class="btn solo_price"><img src="assets/images/paymentlogo4.png" class="img-fluid"></a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+</section>

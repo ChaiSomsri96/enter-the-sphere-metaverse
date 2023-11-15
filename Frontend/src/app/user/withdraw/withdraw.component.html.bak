@@ -1,0 +1,54 @@
+<section class="maininnerarea" 
+	[ngStyle]="{'background-image': 'url(assets/payment_bg.jpg'}"
+	>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-lg-12">
+			<div class="frmbx_inner cmn_frm payment"
+					 [ngStyle]="{ 'background-image': 'url(assets/cardnw.png)' }">
+				<div class="top_bx">
+					<div class="media">
+						<div class="col-lg-4 offset-2">
+							<img [src]="card.cardImage"/>
+						</div>
+						<div class="col-lg-6">
+							<div class="cardright_divitn">
+								<div class="ribon_bx">
+									<h2>Withdraw card</h2>
+									<img src="assets/images/card_img.png" class="img-fluid mn_image"/>
+								</div>
+
+								<div class="media-body">
+									<h1 class="mainindex_header">{{card.name}}</h1>
+									<p>Please specify address where you want to withdraw card. Be sure your wallet have enough funds to perform transaction</p>
+								</div>
+
+								<div class="media-btm">
+									<div class="media">
+										<div class="col-lg-6">
+											<div class="media-body">
+												<h1 class="mainindex_heading">
+													simpleledger addres
+												</h1>
+
+												<div class="form-group mb-0" [ngStyle]="{'background-image': 'url(assets/new_area.png)'}">
+													<input class="form-control" placeholder="simpledger:"
+														[(ngModel)]="destination"/>
+												</div>
+
+												<a (click)="onWithdraw()" class="btn carusel_btn">
+													<span>Withdraw</span>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>

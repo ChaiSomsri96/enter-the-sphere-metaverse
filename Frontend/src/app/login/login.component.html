@@ -1,0 +1,108 @@
+<section class="signIn">
+  <div class="banner_custom position-relative d-flex align-items-center justify-content-center">
+
+    <!-- <div>
+        <img src="../../assets/images/logomain.png" class="img-fluid position-absolute img-left d-none d-lg-block" />
+      </div> -->
+  </div>
+
+
+  <div class="container formSection p-4 p-lg-5 mx-auto" style="margin-top: 100px;background: #101d2a;">
+    <div class="bannerContent helpDeskBanner mx-2">
+      <h1 class="text-white sec-heading text-center px-3 font-weight-light mb-5">
+        Login
+      </h1>
+    </div>
+    <div>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="row">
+          <div class="form-group mb-4 col-lg-12">
+
+            <input type="email" class="form-control" id="exampleInputemail" placeholder="Your Email Address"
+              formControlName="email" />
+            <div class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded" *ngIf="
+                  submitted && loginForm['controls'].email.invalid
+                ">
+              Please enter email.
+            </div>
+            <div class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded" *ngIf="
+                  submitted && loginForm['controls'].email.hasError('pattern')
+                ">
+              Please enter valid email
+            </div>
+            <div class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded" *ngIf="
+                  submitted && loginForm['controls'].email.hasError('maxlength')
+                ">
+              Maximum Length is 100
+            </div>
+          </div>
+
+          <div class="form-group mb-2 col-lg-12 position-relative">
+            <div class="position-relative">
+              <input class="form-control pr-5" id="userPassword" [type]="fieldTextType ? 'text' : 'password'"
+                placeholder="Your Password" formControlName="password" (focus)="onEmail()" />
+              <div class="input-eye">
+                <span class="">
+                  <i class="fa" [ngClass]="{
+                        'fa-eye-slash': !fieldTextType,
+                        'fa-eye': fieldTextType
+                      }" (click)="toggleFieldTextType()"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded" *ngIf="
+                  submitted && loginForm['controls'].password.invalid
+                ">
+              Please enter password.
+            </div>
+            <div class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded" *ngIf="
+                  submitted && loginForm['controls'].password.hasError('pattern')
+                ">
+              Please enter valid password.
+            </div>
+            <div class="alert alert-danger py-1 px-3 mt-2 mb-4 rounded" *ngIf="
+                  submitted &&
+                  loginForm['controls'].password.hasError('maxlength')
+                ">
+              Maximum Length is 100
+            </div>
+          </div>
+
+          <!-- <div class="recaptchaContainer px-3">
+
+            </div> -->
+        </div>
+        <div class="foot_btmbx d-flex justify-content-between mb-3">
+          <div class="checkbox">
+            <div class="custom-checkbox">
+              <input type="checkbox" id="remember_me" formControlName="rememberMe" />
+              <label for="remember_me">Remember me</label>
+            </div>
+          </div>
+
+          <a class="forgot-pass" [routerLink]="['/forgot-password']">Forgot Password?</a>
+        </div>
+        <div class="booster-form-btn text-center">
+          <button type="submit" class="cmnbtntype_nw" [disabled]="!loginForm.valid"
+            data-style="zoom-in">LOGIN</button><br>
+          <div #script id="widget">
+            <!-- <script
+                 async
+                 src="https://telegram.org/js/telegram-widget.js?2"
+                 data-telegram-login="ets_tg_bot"
+                 data-size="medium"
+                 data-auth-url="/"
+                 data-request-access="write"
+               ></script> -->
+          </div>
+          <div [routerLink]="['/register']" class="already-log">
+            <p class="ass-text mr-1">Don't have an account yet?</p>
+            <a [routerLink]="['/register']" class="blue-log">Sign up</a>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
